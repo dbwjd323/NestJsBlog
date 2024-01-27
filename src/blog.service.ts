@@ -1,12 +1,10 @@
 import {PostDto} from './blog.model'; //게시글의 타입 정보 임포트
 import { Injectable } from '@nestjs/common';
-
-//리포지토리 클래스와 인터페이스 임포트
-import { BlogFileRepository, BlogRepository } from './blog.repository';
+import { BlogMongoRepository } from './blog.repository';
 
 @Injectable()
 export class BlogService{
-    constructor(private blogRepository: BlogFileRepository){}
+    constructor(private blogRepository: BlogMongoRepository){}
 
     async getAllPosts() {
         //모든 게시글 가져오기
